@@ -1,0 +1,48 @@
+User id and merchant id need to be filled
+
+1. Upload token -- web page
+    GET: 127.0.0.1:9528/upload
+    merchantsId - 6
+    PassTemplateId:
+
+2. Create User
+    POST: 127.0.0.1:9528/coupon/createuser
+    header: token/middleware-coupon-merchants
+    {
+        "baseInfo": {
+            "name": "Jiaqi Xiao",
+            "age": 23,
+            "gender": "m"
+        },
+        "otherInfo": {
+            "phone": "1234567890",
+            "address": "Inner Ring Rd, Irvine, CA 92697"
+        }
+    }
+
+3. Get Inventory Information
+    GET: 127.0.0.1:9528/coupon/inventoryinfo?userId=#
+
+4. User get Coupon -- with token required
+    POST: 127.0.0.1:9528/coupon/gaincoupontemplate
+    {
+        "userId": #,
+        "passTemplate": {
+            "id": 6,
+            "title": "Middleware discount-2",
+            "hasToken": true
+        }
+    }
+
+5. Get user coupon information
+    GET: 127.0.0.1:9528/coupon/usercouponinfo?userId=#
+
+6. Get user used coupon information
+    GET: 127.0.0.1:9528/coupon/userusedcouponinfo?userId=#
+
+7. User use coupon
+    POST: 127.0.0.1:9528/coupon/userusecoupon
+    {
+        "userId": #,
+        "templateId": ""
+    }

@@ -1,0 +1,42 @@
+All the '#' should be replaced by Merchant id
+1. Crerate Merchant
+
+    POST: 127.0.0.1:9527/merchants/create
+    header: token/middleware-coupon-merchants
+{
+    "name": "Middleware Shop",
+    "logoUrl": "https://unsplash.com/photos/Bd7gNnWJBkU",
+    "businessLicenseUrl": "https://www.ics.uci.edu/~cs237/",
+    "phone": "1234567890",
+    "address": "Donald Bren Hall, 6210, Irvine, CA 92697"
+}
+
+2. Get Merchant information
+    GET: 127.0.0.1:9527/merchants/#
+    header: token/middleware-coupon-merchants
+
+3. Distribute Coupon
+    POST: 127.0.0.1:9527/merchants/distribute
+    header: token/middleware-coupon-merchants
+    {
+        "background": 1,
+        "desc": "Description: Middleware",
+        "end": "2020-06-30",
+        "hasToken": false,
+        "id": #,
+        "limit": 1000,
+        "start": "2020-03-01",
+        "summary": "Summary: Middleware course",
+        "title": "Middleware discount-1"
+    }
+    {
+        "background": 1,
+        "desc": "Description: Middleware",
+        "end": "2020-06-30",
+        "hasToken": true,
+        "id": #,
+        "limit": 1000,
+        "start": "2020-03-01",
+        "summary": "Summary: Middleware course",
+        "title": "Middleware discount-4"
+    }

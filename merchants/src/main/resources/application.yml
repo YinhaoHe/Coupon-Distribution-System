@@ -1,0 +1,20 @@
+spring:
+    application:
+      name: CouponMerchants
+    datasource:
+      url: jdbc:mysql://127.0.0.1:3306/couponsysdata?autoReconnect=true&useSSL=false
+      username: root
+      password: toor
+    kafka:
+      bootstrap-servers: 127.0.0.1:9092
+      consumer:
+        group-id: coupon
+      listener:
+        concurrency: 4
+
+server:
+  port: 9527
+
+logging:
+  level: debug
+  file: coupon-merchants.log
